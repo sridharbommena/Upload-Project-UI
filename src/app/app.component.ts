@@ -48,6 +48,7 @@ export class AppComponent {
   {
     if(this.files.length>0)
     {
+      console.log("handle click event");
       this.showSelectFilesError=false;
       this.spinner.show();
 
