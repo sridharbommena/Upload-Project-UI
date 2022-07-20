@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  APP_NAME: "Uploadify",
+  APP_DESC: "Upload the files and get shareable link valid for 5 days"
 };
 
 /*

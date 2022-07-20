@@ -1,0 +1,52 @@
+.title
+{
+    text-align: center;
+    margin-top: 3%;
+    font-weight: 350;
+}
+
+.desc, ngx-dropzone-label
+{
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 200;
+    line-height: 1.2;
+    margin-bottom: 3%;
+}
+
+.upload-btn
+{
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    border-radius: 0%;
+    font-weight: 400;
+    font-size: 1.3rem;
+    line-height: 1.2;
+    background-color: #1F4690;
+    border-width: 0px;
+    color: #ffffff;
+}
+
+.upload-btn:hover
+{
+    background-color: #002a78;
+    padding-left: 52px;
+    padding-right: 52px;
+}
+
+.upload-btn:active
+{
+    background-color: #4978d1;
+    padding-left: 52px;
+    padding-right: 52px;
+}
+
+.btn-container
+{
+    margin-top: 1%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
