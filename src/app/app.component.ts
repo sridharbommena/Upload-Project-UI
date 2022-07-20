@@ -12,7 +12,11 @@ export class AppComponent {
 
   APP_NAME = environment.APP_NAME;
   APP_DESC = environment.APP_DESC;
-  showSelectFilesError:boolean = false;
+  showErrorMessageSelectFiles:boolean = false;
+  showErrorMessageSizeExceed:boolean = false;
+  errorMessageSelectFiles= environment.AT_LEAST_ONE_UPLOAD_ERROR;
+  errorMessageSizeExceede= environment.SIZE_EXCEEDE;
+  files: File[] = [];
 
   constructor(private spinner: NgxSpinnerService){}
 
@@ -28,10 +32,10 @@ export class AppComponent {
     }
   }
   
-  files: File[] = [];
+
 
   onSelect(event:any) {
-    this.showSelectFilesError=false;
+    this.showErrorMessageSelectFiles=false;
     console.log(event);
     this.files.push(...event.addedFiles);
     console.log("files..");
@@ -39,7 +43,7 @@ export class AppComponent {
   }
 
   onRemove(event:any) {
-    this.showSelectFilesError=false;
+    this.showErrorMessageSelectFiles=false;
     console.log(event);
     this.files.splice(this.files.indexOf(event), 1);
   }
@@ -49,10 +53,24 @@ export class AppComponent {
     if(this.files.length>0)
     {
       console.log("handle click event");
-      this.showSelectFilesError=false;
+      this.showErrorMessageSelectFiles=false;
       this.spinner.show();
-
+      let fileSize = 0;
       //add some logic to send the data to google drive api and generate the link
+      this.files.forEach( (file:File) =>{
+        fileSize = fileSize + Math.round((file.size / 1024));;
+      } )
+
+      if(fileSize>1024*1024*1.5)
+      {
+        console.log("total size is greater than 1.5gb "+Math.round(fileSize/1024)+"mbs");
+        this.showErrorMessageSizeExceed=true;
+      }
+      else
+      {
+        this.showErrorMessageSizeExceed=false;
+        console.log("less than 1.5gb, proceeding...  : "+Math.round(fileSize/1024)+"mbs");
+      }
 
       setTimeout(() => {
         /** spinner ends after 5 seconds */
@@ -61,7 +79,7 @@ export class AppComponent {
     }
     else
     {
-      this.showSelectFilesError = true;
+      this.showErrorMessageSelectFiles = true;
     }
   }
 

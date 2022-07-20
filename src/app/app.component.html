@@ -10,6 +10,8 @@
   </ngx-dropzone>
 </div>
   <div class="btn-container">
+    <p *ngIf="showErrorMessageSelectFiles" class="warn-text">{{errorMessageSelectFiles}}</p>
+    <p *ngIf="showErrorMessageSizeExceed" class="warn-text">{{errorMessageSizeExceede}}</p>
     <button type="button" (click)="handleClick()" class="upload-btn">Upload</button>
   </div>
 </div>
