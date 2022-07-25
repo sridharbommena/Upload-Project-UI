@@ -1,0 +1,16 @@
+<br>
+  <ngx-dropzone (change)="onSelect($event)">
+    <ngx-dropzone-label>Click or Drop here to upload files</ngx-dropzone-label>
+    <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+      <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+    </ngx-dropzone-preview>
+  </ngx-dropzone>
+
+<br>
+<h3 *ngIf="files.length>0">Uploads</h3>
+
+<ol>
+  <div *ngFor="let file of files">
+    <li><upload-task [file]="file"></upload-task></li>
+  </div>
+</ol>
