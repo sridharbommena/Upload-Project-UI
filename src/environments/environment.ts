@@ -5,12 +5,12 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: "AIzaSyB8UCEJCKht3lmbX31A1jsaw7mFrPJxpGQ",
-    authDomain: "f-drop.firebaseapp.com",
-    projectId: "f-drop",
-    storageBucket: "f-drop.appspot.com",
-    messagingSenderId: "521585167761",
-    appId: "1:521585167761:web:e32bca397ba429215c5e30"
+    apiKey: "AIzaSyB_zfAySvUJ6lm5asIT2Bb1EAVy-6Xbn84",
+    authDomain: "upload-project-firebase.firebaseapp.com",
+    projectId: "upload-project-firebase",
+    storageBucket: "upload-project-firebase.appspot.com",
+    messagingSenderId: "716326382998",
+    appId: "1:716326382998:web:ba232a607469eda48801b7"
   }
 };
 
