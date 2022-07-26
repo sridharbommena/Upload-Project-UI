@@ -23,7 +23,7 @@ export class UploadTaskComponent implements OnInit {
   isCopyDone:boolean = false;
   uploadComplete:boolean = false;
   
-  constructor(private storage: AngularFireStorage, private clipboard:Clipboard) { }
+  constructor(private storage: AngularFireStorage, private clipboard:Clipboard, private fireDb:AngularFirestore) { }
 
   ngOnInit() {
     this.startUpload();
@@ -32,7 +32,7 @@ export class UploadTaskComponent implements OnInit {
   startUpload() {
 
     // The storage path
-    const path = `upload-project/${this.file.name}_${Date.now()}`;
+    const path = `upload-project/${Date.now()}_${this.file.name}`;
 
     // Reference to storage bucket
     const ref = this.storage.ref(path);
@@ -48,6 +48,8 @@ export class UploadTaskComponent implements OnInit {
       // The file's download URL
       finalize( async() =>  {
         this.downloadURL = await ref.getDownloadURL().toPromise();
+
+        this.fireDb.collection('upload-project').add( { downloadURL: this.downloadURL, path, createdAt: Date.now() }).then(()=>console.log("added to firestore"));
       }),
       );
 
