@@ -8,10 +8,17 @@ import { Component, OnInit } from '@angular/core';
 export class UploaderComponent {
 
   files: File[] = [];
+  rejectedFiles: File[] = [];
 
   onSelect(event) {
     console.log(event);
     this.files.push(...event.addedFiles);
+    if(event.rejectedFiles!=null && event.rejectedFiles.length>0)
+    {
+      this.rejectedFiles = [];
+       this.rejectedFiles.push(...event.rejectedFiles);
+       console.log(this.rejectedFiles);
+    }
   }
   
   onRemove(event) {

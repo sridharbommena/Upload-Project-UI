@@ -1,5 +1,5 @@
 <br>
-  <ngx-dropzone (change)="onSelect($event)">
+  <ngx-dropzone (change)="onSelect($event)" maxFileSize="1610612736">
     <ngx-dropzone-label>Click or Drop here to upload files</ngx-dropzone-label>
     <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
       <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
@@ -7,6 +7,14 @@
   </ngx-dropzone>
 
 <br>
+
+<h3 *ngIf="rejectedFiles.length>0" >Not Uploaded</h3>
+<ol>
+  <div *ngFor="let file of rejectedFiles">
+    <li style="color: rgb(171, 22, 22);"><b>{{file.name}}</b> not added because it's size is greater than or equal to 1.5GB</li>
+  </div>
+</ol>
+
 <h3 *ngIf="files.length>0">Uploads</h3>
 
 <ol>

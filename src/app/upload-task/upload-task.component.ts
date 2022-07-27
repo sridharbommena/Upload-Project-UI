@@ -23,7 +23,7 @@ export class UploadTaskComponent implements OnInit {
   isCopyDone:boolean = false;
   uploadComplete:boolean = false;
   validDate:string="";
-  VALIDITY_TIME:number=3*1000*60*60;
+  VALIDITY_TIME:number=24*1000*60*60;
   
   constructor(private storage: AngularFireStorage, private clipboard:Clipboard, private fireDb:AngularFirestore) { }
 
