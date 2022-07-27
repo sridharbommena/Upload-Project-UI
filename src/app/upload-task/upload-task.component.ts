@@ -22,6 +22,8 @@ export class UploadTaskComponent implements OnInit {
   downloadURL: string;
   isCopyDone:boolean = false;
   uploadComplete:boolean = false;
+  validDate:string="";
+  VALIDITY_TIME:number=3*1000*60*60;
   
   constructor(private storage: AngularFireStorage, private clipboard:Clipboard, private fireDb:AngularFirestore) { }
 
@@ -48,13 +50,11 @@ export class UploadTaskComponent implements OnInit {
       // The file's download URL
       finalize( async() =>  {
         this.downloadURL = await ref.getDownloadURL().toPromise();
-
+        this.validDate = new Date(parseInt(Date.now().toString())+this.VALIDITY_TIME).toLocaleString();
         this.fireDb.collection('upload-project').add( { downloadURL: this.downloadURL, path, createdAt: Date.now() }).then(()=>console.log("added to firestore"));
+        this.uploadComplete = true;
       }),
       );
-
-    this.uploadComplete = true;
-
       
   }
 

@@ -14,10 +14,11 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50vw;
+  width: 100vw;
 }
 a {
-  font-size: 3vw;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 10vw;
   letter-spacing: 0.2em;
   text-decoration: none;
   color: #363636;
@@ -29,4 +30,39 @@ a {
 }
 a:hover {
   background-size: 100% 6%;
+}
+
+
+@media only screen and (max-width: 270px) {
+  a{
+    font-size: 9vw;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px)  {
+  a{
+    font-size: 7vw;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px)  {
+  a{
+    font-size: 5vw;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  a{
+    font-size: 4.0vw;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px)  {
+  a{
+    font-size: 3.5vw;
+  }
 }
