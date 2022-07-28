@@ -21,7 +21,7 @@
               <button (click)="copyToClipBoard(url)"><i class="fa fa-clone"></i></button>
               <p *ngIf="isCopyDone">copied to clipboard!</p>
           </div>
-          <p *ngIf="uploadComplete"> Link is valid till: <b>{{validDate}}</b></p>
+          <p *ngIf="uploadComplete"> Link is valid till: <b>{{validDate}}</b>. file will be deleted from the server after that.</p>
       </div> 
   
     <!-- <button (click)="task.pause()" [disabled]="!isActive(snap)">Pause</button>
