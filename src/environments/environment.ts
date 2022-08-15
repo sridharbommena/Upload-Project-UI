@@ -11,6 +11,14 @@ export const environment = {
     storageBucket: "upload-project-firebase.appspot.com",
     messagingSenderId: "716326382998",
     appId: "1:716326382998:web:ba232a607469eda48801b7"
+  },
+  firebaseFromEnv:{
+    apiKey: process.env.apiKey,
+    authDomain: process.env.authDomain,
+    projectId: process.env.projectId,
+    storageBucket: process.env.storageBucket,
+    messagingSenderId: process.env.messagingSenderId,
+    appId: process.env.appId
   }
 };
 
