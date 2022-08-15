@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { process } from 'src/env.d';
 import { environment } from 'src/environments/environment.prod';
 
 @Component({
