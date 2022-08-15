@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { process } from 'src/env.d';
 import { environment } from 'src/environments/environment.prod';
 
 @Component({
@@ -9,9 +8,4 @@ import { environment } from 'src/environments/environment.prod';
 })
 export class AppComponent {
   title = 'upload-project-firebase';
-  constructor()
-  {
-    console.log("App started!");
-    console.log(environment.firebaseFromEnv);
-  }
 }
